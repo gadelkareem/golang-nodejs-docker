@@ -7,3 +7,6 @@ RUN apt-get update && apt-get install -y nodejs
 RUN npm install gulp -g
 RUN npm install yarn -g
 
+#psql
+RUN sudo apt-get install -y postgresql-client
+
