@@ -8,5 +8,5 @@ RUN npm install gulp -g
 RUN npm install yarn -g
 
 #psql
-RUN sudo apt-get install -y postgresql-client
+RUN apt-get install -y postgresql-client
 
