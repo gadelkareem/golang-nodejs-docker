@@ -11,4 +11,4 @@ RUN npm install yarn -g
 RUN apt-get install -y postgresql-client
 
 #heroku
-curl https://cli-assets.heroku.com/install.sh | sh
+RUN curl https://cli-assets.heroku.com/install.sh | sh
