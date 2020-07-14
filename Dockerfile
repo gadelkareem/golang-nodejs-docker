@@ -8,9 +8,10 @@ RUN set -eux; \
     	\
     	wget -O go.tgz https://golang.org/dl/go1.14.4.linux-amd64.tar.gz --progress=dot:giga; \
         tar -C /usr/local -xzf go.tgz; \
-        rm -f go.tgz
+        rm -f go.tgz; \
+        mkdir -p $HOME/go/bin $HOME/go/src
 
-ENV GOPATH /usr/local/go
+ENV GOPATH $HOME/go
 ENV PATH $GOPATH/bin:$PATH
 
 ### NodeJS https://github.com/nodejs/docker-node/blob/1d6a051d71e817f3947612a260ddcb02e48c2f74/14/buster/Dockerfile
