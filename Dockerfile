@@ -11,9 +11,9 @@ RUN set -eux; \
         rm -f go.tgz; \
         mkdir -p $HOME/go/bin $HOME/go/src
 
-ENV GOROOT /usr/local/bin
+ENV GOROOT /usr/local/go
 ENV GOPATH $HOME/go
-ENV PATH $GOPATH/bin:$GOROOT:$PATH
+ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 
 ### NodeJS https://github.com/nodejs/docker-node/blob/1d6a051d71e817f3947612a260ddcb02e48c2f74/14/buster/Dockerfile
 RUN set -eux; \
