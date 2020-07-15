@@ -41,11 +41,15 @@ RUN set -eux; \
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
 # cleanup
-RUN rm -rf \
-        /usr/local/go/pkg/*/cmd \
-        /usr/local/go/pkg/bootstrap \
-        /usr/local/go/pkg/obj \
-        /usr/local/go/pkg/tool/*/api \
-        /usr/local/go/pkg/tool/*/go_bootstrap \
-        /usr/local/go/src/cmd/dist/dist \
-        /var/lib/apt/lists/*
+RUN set -eux; \
+        \
+        apt-get autoremove -y; \
+        apt-get clean autoclean; \
+        rm -rf \
+            /usr/local/go/pkg/*/cmd \
+            /usr/local/go/pkg/bootstrap \
+            /usr/local/go/pkg/obj \
+            /usr/local/go/pkg/tool/*/api \
+            /usr/local/go/pkg/tool/*/go_bootstrap \
+            /usr/local/go/src/cmd/dist/dist \
+            /var/lib/{apt,dpkg,cache,log}
