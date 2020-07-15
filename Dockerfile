@@ -10,8 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		gcc \
 		libc6-dev \
 		make \
-		pkg-config \
-	&& rm -rf /var/lib/apt/lists/*
+		pkg-config
 
 ENV PATH /usr/local/go/bin:$PATH
 RUN set -eux; \
@@ -40,3 +39,13 @@ RUN set -eux; \
 
 #heroku
 RUN curl https://cli-assets.heroku.com/install.sh | sh
+
+# cleanup
+RUN rm -rf \
+        /usr/local/go/pkg/*/cmd \
+        /usr/local/go/pkg/bootstrap \
+        /usr/local/go/pkg/obj \
+        /usr/local/go/pkg/tool/*/api \
+        /usr/local/go/pkg/tool/*/go_bootstrap \
+        /usr/local/go/src/cmd/dist/dist \
+        /var/lib/apt/lists/*
